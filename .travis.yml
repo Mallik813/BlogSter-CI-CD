@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "8"
+dist: trusty
+services: 
+  - mongodb
+  - redis-server
+env:
+  - NODE_ENV=ci PORT=3000
+cache:                                            # to cache node_modules so that travis
+  directories:                                     # does not need to install them everytime
+    - node_modules                                 # we build. Improves build time significantly!!
+    - client/node_modules
+install:
+  - npm install
+  - npm run build
+script:
+  - nohup npm run start &                           # & -> to run other commands in background, nohup -> don't kill the process if the shell is closed
+  - sleep 3                                         # gives time for the server to start before starting any tests
+  - npm run test
