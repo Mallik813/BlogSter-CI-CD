@@ -1,7 +1,9 @@
-- Switch on mongoDB (if local)
-- redis-server
-- npm run dev
+Basic blogging app functionality.
 
-It is a CI/CD extension of the https://github.com/Mallik813/Blogster repository.
+Caching for blogs done by REDIS
 
-I did not want to mess up the repo with all the trial and error stuff of Travis CI, hence this repo! Worked pretty well!!
+Google OAuth
+
+CI/CD using Travis
+
+Image uploads to AWS S3 using Presigned URL 
